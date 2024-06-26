@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Excuse Generator</title>
+</head>
+<body>
+    <h1>Random Excuse Generator</h1>
+    <p id="excuse">My dog ate my homework</p>
+    <button onclick="generateExcuse()">Generate Excuse</button>
+
+    <script>
+        function getRandomElement(arr) {
+            return arr[Math.floor(Math.random() * arr.length)];
+        }
+
+        function generateExcuse() {
+            let who = ['The dog', 'My grandma', 'The mailman', 'My bird'];
+            let action = ['ate', 'peed', 'crushed', 'broke'];
+            let what = ['my homework', 'my phone', 'the car'];
+            let when = ['before the class', 'when I was sleeping', 'while I was exercising', 'during my lunch', 'while I was praying'];
+
+            let randomWho = getRandomElement(who);
+            let randomAction = getRandomElement(action);
+            let randomWhat = getRandomElement(what);
+            let randomWhen = getRandomElement(when);
+
+            let excuse = `${randomWho} ${randomAction} ${randomWhat} ${randomWhen}.`;
+
+            document.getElementById('excuse').innerHTML = excuse;
+        }
+
+        window.onload = generateExcuse;
+    </script>
+</body>
+</html>
